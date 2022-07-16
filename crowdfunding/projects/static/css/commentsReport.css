@@ -1,0 +1,80 @@
+/* #container-1{
+    position: sticky;
+    top: 0;
+} */
+
+
+#sitename{
+    color: #750550;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-left: 1rem;
+
+}
+
+
+
+.mybuttons{
+    color: black;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+}
+
+#startcam{
+    margin-right: 8rem;
+}
+
+
+
+
+
+
+
+
+
+
+#footer{
+    padding: 4rem;
+    background-color: black;
+    color: wheat;
+}
+
+
+#footer h4{
+    color: grey;
+
+}
+
+#footer i{
+    font-size: 2rem;
+
+}
+
+
+#footer a{
+    text-decoration: none;
+    color: #750550;
+    font-size: 2rem;
+    font-weight: 900;
+
+}
+
+
+
+
+
+
+ #myname{
+    font-family:Arial, Helvetica, sans-serif;
+    color: #750550;
+ }
+
+ .label1{
+    color: #750550;
+    font-size: 1rem;
+    font-weight: bold;
+}
+

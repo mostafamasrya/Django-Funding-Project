@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Comments Reports
+{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/commentsReport.css' %}">
+{% endblock %}
+{% block content %}
+    <!-- body -->
+
+    <div class="bg-danger p-5 d-flex justify-content-center">
+
+      <h1>Welcome Admin</h1>
+
+    </div>
+
+    <div class=" p-5 bg-light my-3">
+
+      <div class="row p-3 d-flex justify-content-between">
+
+        <div class="col-2">
+          <i  style="font-size: 4rem;"  class="fa-solid fa-lock text-danger"></i>
+
+        </div>
+
+        <div class="col-2">
+          <i style="font-size: 4rem;" class="fa-solid fa-screwdriver-wrench text-danger"></i>
+          
+        </div>
+
+      </div>
+
+
+
+
+    </div>
+
+
+    <!-- nav tab -->
+     <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/projects/admin/">Add Category</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/admin/add5projects/">Add 5 Projcts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/admin/comments_reports/">Comments Reports</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/admin/project_reports/" >Projcts Reports</a>
+      </li>
+    </ul>
+
+
+
+
+    <!-- comments Report -->
+
+
+      <div class=" p-5 bg-light my-3" id="commentsDiv">
+        <h3 style="color:#750550 " class="p-4 my-4">COMMENTS Reports</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">No.</th>
+              <th scope="col">Report By</th>
+              <th scope="col">Comment owner</th>
+              <th scope="col">Reason</th>
+              <th scope="col">Action</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mostafa masrya</td>
+              <td>mohamed Hamed</td>
+              <td>has bad words</td>
+              <td><button class="btn btn-danger">Delete</button></td>
+
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob james</td>
+              <td>Thornton moses</td>
+              <td>ay klam</td>
+              <td><button class="btn btn-danger">Delete</button></td>
+
+            </tr>
+ 
+          </tbody>
+        </table>
+
+      </div>
+
+{% endblock %}
+{% block linkscript %}
+<script src="{% static 'js/commentsReport.js' %}"></script>
+{% endblock %}

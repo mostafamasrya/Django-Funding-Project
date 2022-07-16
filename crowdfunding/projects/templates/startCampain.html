@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Add Campain
+{% endblock %}
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/startcampaign.css' %}">
+{% endblock %}
+{% block content %}
+        <div id="campinfo">
+            <h3>Campain Info</h3>
+        </div>
+        <div id="startcampform">
+
+            <form action="/projects/add_project/" enctype="multipart/form-data" method="post">
+                <!-- title -->
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="exampleInputtext" class="form-label label1">title</label>
+                    <input type="text" class="form-control" id="exampleInputtext" aria-describedby="emailHelp"
+                           placeholder="title" name="title">
+                    <div id="emailHelp" class="form-text">keep you title within 255 character.</div>
+                </div>
+                <!-- select -->
+                <div class="mb-3">
+                    <label for="categ" class="form-label label1">Category</label>
+                    <select name="category" id="categ" class="form-control">
+                        {% for category in categories %}
+                        <option value="{{category.id}}">{{category.title}}</option>
+                        {% endfor %}
+                    </select>
+
+
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="exampleInputgoal" class="form-label label1">Total Target</label>
+                    <input type="number" class="form-control" name="total_target" id="exampleInputgoal" aria-describedby="emailHelp"
+                           placeholder="goal">
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputtags" class="form-label label1">Tags</label>
+                    <input type="text" class="form-control" name="tags" id="exampleInputtags" aria-describedby="emailHelp"
+                           placeholder="Tags">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputsdate" class="form-label label1">Start Date</label>
+                    <input type="date"  class="form-control" name="start_date"  id="exampleInputsdate" aria-describedby="emailHelp"
+                           placeholder="Start Date">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputedate" class="form-label label1">End Date</label>
+                    <input type="date" class="form-control" name="end_date" id="exampleInputedate" aria-describedby="emailHelp"
+                           placeholder="End Date">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputfile" class="form-label label1">Image</label>
+                    <input type="file"  name="images" accept="image/jpeg ,image/jpg , image/png" multiple="multiple"
+                           class="form-control" id="exampleInputfile" aria-describedby="emailHelp">
+                </div>
+                <div id="result2">
+                    <!-- <output id="result2"> -->
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputtxtarea" class="form-label label1">Details</label>
+                    <br>
+
+                    <textarea name="details" id="exampleInputtxtarea" cols="100" rows="10"></textarea>
+                </div>
+
+                <button type="submit" name="submit" class="btn btn-danger mt-5">Submit My Campaign</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+{% block linkscript %}
+   <script src="{% static 'js/startcampaign.js' %}"></script>
+{% endblock %}

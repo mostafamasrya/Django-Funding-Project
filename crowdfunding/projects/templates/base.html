@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}
+    {% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+  <!-- font awesome  -->
+  <script src="https://kit.fontawesome.com/b5c82d464c.js" crossorigin="anonymous"></script>
+  {% block link %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    {% endblock %}
+
+</head>
+</head>
+
+<body>
+  <div class="container-fluid" id="maindiv">
+    <div class="row" id="container-1">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" id="sitename">DONATOR</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active mybuttons" aria-current="page" href="/projects/home/">Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active mybuttons" aria-current="page" href="/usercrowd/profile/">Profile</a>
+              </li>
+
+              <li class="nav-item ">
+                <a href="/projects/add_project/"><button type="button" class="btn btn-danger"  id="startcam">Start a Campaign</button></a>
+              </li>
+              <li class="nav-item ms-4">
+                <a class="nav-link mybuttons" id="loglink" href="/usercrowd/logout/" tabindex="-1">Log out</a>
+              </li>
+
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-danger" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+    <!-- log out div -->
+          <div id="logoutdiv" class="row bg-light"  style="display:none;">
+            <h3 class="col-6 p-5 my-5">Are you sure to log out??</h3>
+            <div class="row ms-4 p-2">
+              <a id="yeslog" href="/usercroud/logout/"  class="btn btn-danger m-2 col-1">Yes</a>
+              <button id="nolog" class="btn btn-success m-2  col-1">no</button>
+            </div>
+          </div>
+
+    {% block content %}
+    {% endblock %}
+    <!-- footer -->
+    <div id="footer">
+      <div id="div1" class="row">
+        <div class="col-4">
+          <h4>HOW IT WORKS</h4>
+          <p>Campaign</p>
+          <p>InDemand</p>
+          <p>Enterprise</p>
+          <p>Fees</p>
+          <h4>ABOUT US</h4>
+          <P>what we do</P>
+          <p>press</p>
+          <p>about us</p>
+
+        </div>
+
+
+
+        <div class="col-2">
+          <h4>RESOUCES</h4>
+          <p>Trust & Saftey</p>
+          <p>Experts</p>
+          <p>Help & Support</p>
+
+
+
+        </div>
+
+        <div class="col-6">
+          <h4>FOLLOW US</h4>
+
+          <hr>
+
+          <div class="row">
+            <i class="fa-brands fa-facebook col-2"></i>
+            <i class="fa-solid fa-envelope col-2"></i>
+            <i class="fa-brands fa-twitter col-2"></i>
+            <i class="fa-brands fa-linkedin col-2"></i>
+            <i class="fa-solid fa-wifi col-2"></i>
+
+
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <div id="div2">
+        <hr>
+        <div class="row">
+          <p class="col-1">Terms of Use</p>
+          <p class="col-1">Privicy Policy</p>
+          <p class="col-1">cookie Policy</p>
+          <p class="col-6">Accessbility</p>
+          <div class="col-3">
+            <p>All Rights Served@DENATOR</p>
+            <a href="#">DONATOR</a>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  {% block linkscript %}
+   <script src="{% static 'js/home.js' %}"></script>
+{% endblock %}
+
+</body>
+
+</html>

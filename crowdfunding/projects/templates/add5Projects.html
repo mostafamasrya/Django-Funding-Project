@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Add Projects
+{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/Add5Projects.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="bg-danger p-5 d-flex justify-content-center">
+
+    <h1>Welcome Admin</h1>
+
+</div>
+
+
+<div class=" p-5 bg-light my-3">
+
+    <div class="row p-3 d-flex justify-content-between">
+
+        <div class="col-2">
+            <i style="font-size: 4rem;" class="fa-solid fa-lock text-danger"></i>
+
+        </div>
+
+        <div class="col-2">
+            <i style="font-size: 4rem;" class="fa-solid fa-screwdriver-wrench text-danger"></i>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- nav tab -->
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/projects/admin/">Add Category</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/projects/admin/add5projects/">Add 5 Projcts</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/projects/admin/comments_reports/">Comments Reports</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/projects/admin/project_reports/">Projcts Reports</a>
+    </li>
+</ul>
+
+<div class=" p-5 bg-light my-3">
+    <h3 style="color:#750550 " class="p-4 my-4">Adding 5 Projects</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">No.</th>
+            <th scope="col">title</th>
+            <th scope="col">category</th>
+            <th scope="col">Project owner</th>
+            <th scope="col">total_target</th>
+            <th scope="col">start_date</th>
+            <th scope="col">end_date</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for project in projects %}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{project.title}}</td>
+            <td>{{project.category}}</td>
+            <td>{{project.user.first_name}}</td>
+            <td>{{project.total_target}}</td>
+            <td>{{project.start_date}}</td>
+            <td>{{project.end_date}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <!-- choose projects -->
+    <form action="/projects/admin/add5projects/" method="post">
+        {% csrf_token %}
+        <div class=" p-5 bg-light my-3" >
+        <h3  style="color:#750550 " class="p-4 my-4">Adding 5 Projects</h3>
+        <div class="p-2" >
+          <select class="form-select" name="pro1" aria-label="Default select example">
+            <option selected>Select First Project</option>
+              {% for project in projects %}
+            <option value="{{project.id}}">{{project.title}}</option>
+              {% endfor %}
+          </select>
+        </div>
+          <div class="p-2" >
+            <select class="form-select" name="pro2" aria-label="Default select example">
+            <option selected>Select Second Project</option>
+           {% for project in projects %}
+            <option value="{{project.id}}">{{project.title}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="p-2" >
+            <select class="form-select" name="pro3" aria-label="Default select example">
+            <option selected>Select Third Project</option>
+            {% for project in projects %}
+            <option value="{{project.id}}">{{project.title}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="p-2" >
+            <select class="form-select" name="pro4" aria-label="Default select example">
+            <option selected>Select Forth Project</option>
+           {% for project in projects %}
+            <option value="{{project.id}}">{{project.title}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="p-2" >
+            <select class="form-select" name="pro5" aria-label="Default select example">
+            <option selected>Select Fifth Project</option>
+            {% for project in projects %}
+            <option value="{{project.id}}">{{project.title}}</option>
+              {% endfor %}
+            </select>
+          </div>
+            <input type="submit" name="submit" class="btn btn-primary" value="Add Projects">
+      </div>
+    </form>
+
+</div>
+{% endblock %}
+{% block linkscript %}
+<script src="{% static 'js/Add5Projects.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "baseprofile.html" %}
+{% load static %}
+{% block title %}
+Mydonations
+{% endblock %}
+    {% block link %}
+    <link rel="stylesheet" href="{% static 'css/mydonations.css' %}">
+    {% endblock %}
+    {% block content %}
+
+    <div id="navbar2">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active me-3" href="./profile.html" aria-current="page" id="infolink">Profile</a>
+              <a class="nav-link active me-3" href="#" aria-current="page" id="donalink">My Donations</a>
+
+      
+              <a class="nav-link" href="./mycampaign.html" id="camplink">Campaigns</a>
+           
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+
+
+
+
+    <!-- campaigns -->
+
+    <div id="mycamp">
+      
+      
+        <div class="card me-5" style="width: 25rem;">
+          <img src="./images/waterwell.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            
+            <p class="card-text">To facilitate the provision of the quality and wholesome education targeting disadvantaged children and youth to improve their life chances by optimising their potential.</p>
+            <div class="row" style="color: #750550;font-weight: 500;">
+              <p class="col-4">Donations</p>
+              <p class="col-4">funded</p>
+              <p class="col-4">target</p>
+
+
+            </div>
+
+
+            <div class="row">
+              <p class="col-4">100$</p>
+              <p class="col-4">1900 $</p>
+              <p class="col-4">2500 $</p>
+
+
+            </div>
+
+
+            <div>
+              <a href="#" class="btn btn-danger">Donate More</a>
+            </div>
+
+          </div>
+        </div>
+
+
+    </div>
+
+
+    {% endblock %}
+{% block linkscript %}
+   <script src="{% static 'js/mydonations.js' %}"></script>
+{% endblock %}

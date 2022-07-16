@@ -1,0 +1,255 @@
+/* #container-1{
+    position: sticky;
+    top: 0;
+} */
+
+
+#sitename{
+    color: #750550;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-left: 1rem;
+
+}
+
+
+
+.mybuttons{
+    color: black;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+}
+
+#startcam{
+    margin-left: 4rem;
+}
+
+.carousel .carousel-inner {
+    height: 30rem;
+    /* padding: 0 auto; */
+    /* margin: 0 auto; */
+    margin-left: 7rem;
+    /* border-radius: 5rem; */
+}
+
+#slider{
+    background-color: rgb(210, 226, 231);
+    margin: 0;
+    padding: 1rem;
+   
+}
+
+.carousel {
+    width:70rem;
+    height:30rem;
+  }
+
+
+
+
+/* #slider img{
+    position: absolute;
+} */
+
+#prevbtn{
+    color: #750550 !important;
+    margin-left: 7rem;
+
+
+}
+
+
+#nextbtn{
+    color: #750550 !important;
+    margin-left: 11rem;
+
+}
+
+#caption4{
+    margin-right: 40rem;
+}
+
+
+
+#generaldiv{
+    background-color: rgb(209, 218, 221);
+    padding: 5rem;
+    margin-bottom: 5rem;
+}
+#gneralsmdiv {
+    display: flex;
+}
+
+
+
+#gneralsmdiv h2{
+    margin: 0.1rem auto;
+   
+}
+
+
+#gneralsmdiv2 {
+    display: flex;
+}
+
+
+
+#gneralsmdiv2 h2{
+    margin: 1rem auto;
+    /* justify-content: center; */
+}
+
+
+.info{
+    padding: 1rem;
+}
+
+
+.info h1{
+    margin: 0.5rem auto;
+    color: #750550;
+}
+
+
+
+
+
+
+
+#footer{
+    padding: 4rem;
+    background-color: black;
+    color: wheat;
+}
+
+
+#footer h4{
+    color: grey;
+
+}
+
+#footer i{
+    font-size: 2rem;
+
+}
+
+
+#footer a{
+    text-decoration: none;
+    color: #750550;
+    font-size: 2rem;
+    font-weight: 900;
+
+}
+
+
+
+
+
+/* categories */
+
+
+#categoriesdiv{
+    padding: 3rem;
+    margin-bottom: 5rem;
+    background-color: rgb(250, 253, 253);
+
+}
+
+.explorediv{
+    display: flex;
+}
+.explore{
+    margin: 1rem auto;
+    color: #750550;
+}
+
+
+.hr{
+    margin: 1rem auto;
+    width:5%;
+}
+
+.hrdiv{
+    display: flex ;
+
+}
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-top: 2rem;
+  }
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .topleft {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #750550;
+  }
+
+
+  #Startcampaign{
+    padding: 5rem;
+  }
+
+  #campinfo{
+    color: #750550;
+  }
+
+
+
+#startcampform{
+    padding: 3rem;
+}
+
+  #pro2{
+    height: 18rem;
+  }
+
+
+  #prorow1{
+    padding-left: 10rem;
+    margin-bottom: 2rem;
+  }
+
+
+  #prorow2{
+    padding-left: 10rem;
+    margin-bottom: 2rem;
+  }
+
+  #pro4{
+    height: 15rem;
+  }
+
+
+ 
+
+.label1{
+    color: #750550;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
+#result2{
+    display: flex;
+    padding: 1rem 0;
+    gap: 1rem;
+}
+
+.thumbnail{
+    height: 12rem;
+}

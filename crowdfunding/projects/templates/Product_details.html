@@ -1,0 +1,185 @@
+{% extends 'baseproject.html' %}
+{% load static %}
+{% block title %}
+Product Details
+{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/crousel.css' %}">
+<link rel="stylesheet" href="{% static 'css/productdetails.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container-fluid bootdey " style="height:10rem !important ;">
+    <div class="col-md-12">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="col-md-6">
+                    <!--------------------------------------------->
+                    <!-- Carousel -->
+                    <div id="carousel" class="carousel slide gallery" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-slide-number="0" data-toggle="lightbox"
+                                 data-gallery="gallery">
+                                <img src="{% static 'images/rob1.jfif' %}" class="d-block w-100" alt="...">
+                            </div>
+                            {% for img in images %}
+                            <div class="carousel-item" data-slide-number="{{ forloop.counter0 }}" data-toggle="lightbox"
+                                 data-gallery="gallery">
+                                <img src="{{ img.images.url }}" class="d-block w-100" alt="...">
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                        <a class="carousel-fullscreen" href="#carousel" role="button">
+                            <span class="carousel-fullscreen-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Fullscreen</span>
+                        </a>
+                        <a class="carousel-pause pause" href="#carousel" role="button">
+                            <span class="carousel-pause-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Pause</span>
+                        </a>
+                    </div>
+                    <!---------------------------------------->
+
+
+                    <!-- Carousel Navigatiom -->
+                    <div id="carousel-thumbs" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-slide-number="0">
+                                <div class="row mx-0">
+                                     {% for img in images %}
+                                    <div id="carousel-selector-1" class="thumb col-3 px-1 py-2"
+                                         data-target="#carousel" data-slide-to="{{ forloop.counter0 }}">
+                                        <img src="{{ img.images.url }}" class="img-fluid" alt="...">
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!----------------------------------------------------->
+
+                </div>
+                <div class="col-md-6">
+                    <h3 class="pro-d-title text-success">
+
+                        Funding
+
+                    </h3>
+                    <h1>
+                        Title: {{project.title}}
+                    </h1>
+                    <p>{{project.details}}
+                    </p>
+                    <div class="product_meta">
+                            <span class="posted_in"> <strong>Category:</strong> <a rel="tag"
+                                                                                   href="#">{{project.category}}</a></span>
+                    </div>
+
+                    <h3 >${{donation}} USD</h3>
+
+                    <div class="progress">
+                        <div class="progress-bar  bg-success" style="width:70%"></div>
+                    </div>
+                    <h3>Target Donate Money ${{project.total_target}} USD</h3>
+
+
+                    <form class="form-group" action="/projects/product_details/{{project.id}}" method="post">
+                        {% csrf_token %}
+                        <label for="Donate_input">Donate Value</label>
+                        <input type="number" placeholder="1" name="donation_value" class="form-control quantity my-2" id="Donate_input">
+                        <p id="alert" style="display: none;" class="alert alert-danger"></p>
+                        <input type="submit" value="Post" class="btn btn-round btn-primary"
+                               onclick="updte_Donate()">
+
+
+                    </form>
+
+
+                    <form class="form-group" action="/projects/add_rate/{{project.id}}" method="post">
+                        {% csrf_token %}
+                        <label for="Donate_rate">Rate (between 1 and 10):</label>
+
+                        <input type="number" name="rate" class="form-control quantity my-2" name="quantity" id="Donate_rate">
+                        <p id="alertRate" style="display: none;" class="alert alert-danger "></p>
+                        <input type="submit" value="Post" class="btn btn-round btn-primary"
+                               onclick="validate_rate()">
+                    </form>
+
+                    <h3>the overall average rating of the project :: {{avg_rate}}</h3>
+                    <i class="fa-brands fa-facebook-f fa-2x mx-2"></i>
+                    <i class="fa-brands fa-whatsapp fa-2x"></i>
+                    <i class="fa-brands fa-twitter fa-2x"></i>
+                    <a href="Commentreport.html" class="btn btn-primary btn-lg bg-danger mx-5" role="button"
+                       aria-disabled="true">Report</a>
+
+                </div>
+
+            </div>
+ </section>
+  </div>
+
+</div>
+
+
+<div class="container-fluid bootdey  " id="lastdivin">
+    <div class="col-md-12">
+        <div class="col-md-10">
+            <div id="exTab1" class="container ">
+                <ul class="nav nav-pills" style="margin: bottom 50px !important; ;">
+                    <!-- <li class="active">
+            <a href="#1a" data-toggle="tab">Details</a>
+        </li> -->
+                    <li><a href="#3a" data-toggle="tab">show Comments</a>
+                    </li>
+                    <li class="active"><a href="#3a" data-toggle="tab">Comment</a>
+                    </li>
+                    <li><a href="#4a" data-toggle="tab"></a>
+                    </li>
+                </ul>
+
+                <div class="tab-content clearfix">
+
+
+                    <div class="tab-pane" id="3a">
+                        <form action="/projects/add_comment/{{project.id}}" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="comment">Enter your Comment Here :</label>
+                                <input type="text" class="form-control" name="comment" id="comment" aria-describedby="emailHelp"
+                                       placeholder="Enter comment">
+                            </div>
+                            <button type="submit" id="postcomment" style="margin-bottom: 50px;" class="btn btn-primary">
+                                Post
+                            </button>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="2a">
+
+
+                    </div>
+                    <a href="/projects/add_comment/{{project.id}}" data-toggle="tab">show Comments</a>
+                        {% for comment in comments %}
+                        <p>comment.comment</p>
+                        {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block linkscript %}
+<script src="{% static 'js/pro_dtails.js' %}"></script>
+{% endblock %}
+
+

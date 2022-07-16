@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+{% block content %}
+<!-- slider -->
+<div id="slider">
+    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false"
+         data-bs-interval="false">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <img src="{% static 'images/donate.webp' %}" class="d-block w-100 h-50" alt="...">
+                    <div class="topleft">Supply more than 50 families with Aid & Food</div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="container">
+                    <img src="{% static 'images/donate1.jpeg' %}" class="d-block w-100 h-50" alt="...">
+                    <div class="topleft">Van which move around Egypt for people needs</div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="container">
+                    <img src="{% static 'images/donat2.jpg' %}" class="d-block w-100 h-50" alt="...">
+                    <div class="topleft">Supply a fully completed room for cancer worriors in 57357</div>
+
+                </div>
+            </div>
+
+
+            <div class="carousel-item">
+
+                <div class="container">
+
+                    <img src="{% static 'images/donate4.jpg' %}" class="d-block w-100 h-50" alt="...">
+                    <div class="topleft">Supply more than 50 wheel chairs for sick people</div>
+                </div>
+
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+                data-bs-slide="prev" id="nextbtn">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true" id="prevbtn"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+
+
+<div id="projectstop5">
+
+    <div class="explorediv">
+        <h2 class="explore">the latest 5 projects</h2>
+
+    </div>
+
+    <div class="hrdiv">
+        <p class="hr">
+        <hr>
+        </p>
+
+    </div>
+
+    <div class="row prorow1"  id="prorow1">
+        {% for lproject in latestProjectsList %}
+        <div class="col-6 my-5">
+            <div class="card me-5" style="width: 25rem;">
+                <img src="{{lproject.images.url}}" style="height:300px" class="card-img-top" alt="...">
+                <div class="card-body">
+
+                    <p class="card-text">{{lproject.project.details}}</p>
+                    <div class="row" style="color: #750550;font-weight: 500;">
+                        <p class="col-4">days left</p>
+                        <p class="col-4">funded</p>
+                        <p class="col-4">target</p>
+
+                    </div>
+
+                    <div class="row">
+                        <p class="col-4">77</p>
+                        <p class="col-4">2546 $</p>
+                        <p class="col-4">{{lproject.project.total_target}} $</p>
+
+                    </div>
+                    <div>
+                        <a href="#" class="btn btn-danger">Donate</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+
+
+    </div>
+</div>
+
+
+
+<!-- categories -->
+<div id="categoriesdiv">
+
+
+    <div class="explorediv">
+        <h2 class="explore">Explore Categories</h2>
+
+    </div>
+
+
+    <div class="hrdiv">
+
+
+        <p class="hr">
+        <hr>
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <div class="row">
+            {% for category in categories %}
+            <div class="container col-4">
+                <a href="./categories.html"><img src="{{ category.image_cat.url }}" alt=""></a>
+                <div class="centered">{{category.title}}</div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+</div>
+
+<!-- general about projects -->
+<div id="generaldiv">
+    <div id="gneralsmdiv">
+        <h2>Projects By Project,</h2>
+    </div>
+    <div id="gneralsmdiv2">
+        <h2>we're changing our ideas come to life</h2>
+    </div>
+
+    <div class="row my-5">
+        <div class="col-3 info">
+            <h1>1B+</h1>
+            <P class="wrap-text">Total raised across all projects,from dance to design.</P>
+
+        </div>
+
+
+        <div class="col-3 info">
+            <h1>11MM+</h1>
+            <P class="wrap-text">Contributions from our amazing community of backers for 650k+ projects</P>
+
+        </div>
+
+        <div class="col-3 info">
+            <h1>233</h1>
+            <P class="wrap-text">Countries & territories are home to Indiegogo users</P>
+
+        </div>
+
+        <div class="col-3 info">
+            <h1>18,192%</h1>
+            <P class="wrap-text">The most a campaign has exceeded its goal … so far!.</P>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
+{% block linkscript %}
+   <script src="{% static 'js/home.js' %}"></script>
+{% endblock %}

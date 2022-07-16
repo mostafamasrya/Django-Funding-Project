@@ -1,0 +1,129 @@
+{% extends 'baseproject.html' %}
+
+{% load static %}
+{% block title %}
+List Projects
+{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block content %}
+<div id="carouselFade" class="carousel slide carousel-fade" data-ride="carousel">
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="carousel-caption">
+                <h3>First slide label</h3>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+        </div>
+        <div class="item" >
+            <div class="carousel-caption">
+                <h3>Health & Fitness</h3>
+                <p>Living fit & full of life</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="carousel-caption">
+                <h3>Education</h3>
+                <p>Education & learning for every path in life</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="carousel-caption">
+                <h3>Phones & Accessories</h3>
+                <p>Products for staying connected</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="carousel-caption">
+                <h3>Photography</h3>
+                <p>Picture-perfect projects</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="carousel-caption">
+                <h3>Tabletop Games</h3>
+                <p>Cooperative, competitive & always fun</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carouselFade" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carouselFade" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<!-- test -->
+
+<div class="container my-5 pt-5">
+    <div class="row">
+        <div class="col-md-8 order-md-2 col-lg-9">
+            <div class="container-fluid">
+
+                <div class="row">
+                    {% for image in images %}
+
+                    <div class="col-3 mx-5 my-3">
+                        <div class="card me-5" style="width: 25rem;">
+                            <img  style="height:300px" src="{{ image.images.url }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h3>{{ image.project.title }}</h3>
+                                <p class="card-text">{{image.project.details}}</p>
+                                <div class="row" style="color: #750550;font-weight: 500;">
+                                    <p class="col-4">days left</p>
+                                    <p class="col-4">funded</p>
+                                    <p class="col-4">target</p>
+                                </div>
+                                <div class="row">
+                                    <p class="col-4">77</p>
+                                    <p class="col-4">2546 $</p>
+                                    <p class="col-4">{{image.project.total_target}} $</p>
+                                </div>
+                                <div>
+
+                                        <a href="/projects/product_details/{{image.project.id}}" class="btn btn-danger">Donate</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    {% endfor %}
+
+
+                </div>
+                <div class="row sorting mb-5 mt-5">
+                    <div class="col-12">
+                        <a class="btn btn-light" id="btn-back-to-top">
+                            <i class="fas fa-arrow-up mr-2"></i> Back to top</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 order-md-1 col-lg-3 sidebar-filter">
+
+            <h6 class="text-uppercase font-weight-bold mb-3">All Categories</h6>
+            {% for category in categories %}
+            <div class="mt-2 mb-2 pl-2">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="category-1">
+                    <a href="#">{{category.title}}</a>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+{% block linkscript %}
+<script src="{% static 'js/backtotop.js' %}"></script>
+{% endblock %}

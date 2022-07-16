@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Admin
+{% endblock %}
+{% block link %}
+  <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock %}
+{% block content %}
+
+
+    <div class="bg-danger p-5 d-flex justify-content-center">
+
+      <h1>Welcome Admin</h1>
+
+    </div>
+
+
+    <div class=" p-5 bg-light my-3">
+
+      <div class="row p-3 d-flex justify-content-between">
+
+        <div class="col-2">
+          <i  style="font-size: 4rem;"  class="fa-solid fa-lock text-danger"></i>
+
+        </div>
+
+        <div class="col-2">
+          <i style="font-size: 4rem;" class="fa-solid fa-screwdriver-wrench text-danger"></i>
+          
+        </div>
+
+      </div>
+
+
+
+
+    </div>
+
+
+    <!-- nav tab -->
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/projects/admin/">Add Category</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/admin/add5projects/">Add 5 Projcts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/admin/comments_reports/">Comments Reports</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/admin/project_reports/" >Projcts Reports</a>
+      </li>
+    </ul>
+
+
+
+    <!-- category div -->
+
+
+
+    <div class=" p-5 bg-light my-3" id="categoryDiv">
+
+
+
+      <form method="post" action="/projects/admin/" enctype="multipart/form-data">
+          {% csrf_token %}
+        <div class="mb-5 p-4">
+          <label for="exampleInputtext" class="form-label label1">Enter Your Category Title</label>
+          <input type="text" class="form-control"  name="title" id="exampleInputtext" aria-describedby="emailHelp" placeholder="Enter Your Categories">
+          
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputfile" class="form-label label1">Image</label>
+          <input type="file" accept="image/jpeg ,image/jpg , image/png" name="image_cat"  class="form-control" id="exampleInputfile" aria-describedby="emailHelp">
+        </div>
+        <div id="result2">
+        <!-- <output id="result2"> -->
+        </div>
+
+        <button type="submit" class="btn btn-danger mt-5">Add Category</button>
+      </form>
+
+    </div>
+
+{% endblock %}
+{% block linkscript %}
+   <script src="{% static 'js/admin.js' %}"></script>
+{% endblock %}
